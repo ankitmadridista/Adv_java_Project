@@ -68,19 +68,20 @@ public class LoanApplyController {
 	@RequestMapping(value = "/admin-view-apply.htm")
 	public String viewPending(LoanApply loanApply, ModelMap map1,  ModelMap map2, ModelMap map3, HttpSession s) {
 		//String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
-		
+		//System.out.println("admin - view loan applic");
 		//pending
 		List<LoanApply> list1 = loanApplyService.viewAllPendingList();
 		map1.put("list1", list1);			
-		
+		System.out.println(list1);
 		//accept
 		List<LoanApply> list2 = loanApplyService.viewAllApproveList();
 		map2.put("list2", list2);
-			
+		System.out.println(list1);
 		//reject
 		List<LoanApply> list3 = loanApplyService.viewAllRejectList();
 		map3.put("list3", list3);
 		
+	System.out.println(list1);
 		return "admin_show_apply";
 	}
 	

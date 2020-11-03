@@ -19,8 +19,8 @@ public class LoanTypeMasterDaoImple implements LoanTypeMasterDao {
 	
 	@Override
 	public void addLoanType(LoanTypeMaster loanTypeMaster) {
+			System.out.println(loanTypeMaster.toString());
 		ht.execute(new HibernateCallback<Void>() {
-
 			@Override
 			public Void doInHibernate(Session session) throws HibernateException {
 				

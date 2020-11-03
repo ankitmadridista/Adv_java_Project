@@ -60,7 +60,7 @@
 				<%=l.getTenure() %>	
 			</td>
 			<td>
-				<%=l.getRateOfInt() %>	
+				<%= l.getRateOfInt() %>	%
 			</td>
 			<td>
 				<%=l.getApplyDate() %>
@@ -123,7 +123,7 @@
 				<%=l.getTenure() %>	
 			</td>
 			<td>
-				<%=l.getRateOfInt() %>	
+				<%= l.getRateOfInt() %>%
 			</td>
 			<td>
 				<%=l.getApplyDate() %>
@@ -186,7 +186,7 @@
 				<%=l.getTenure() %>	
 			</td>
 			<td>
-				<%=l.getRateOfInt() %>	
+				<%= l.getRateOfInt() %>%
 			</td>
 			<td>
 				<%=l.getApplyDate() %>

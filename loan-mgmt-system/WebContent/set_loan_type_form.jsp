@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Loan Application Form</title>
+<title>Add Loan Type</title>
 </head>
 <body>
-<h1 style="text-align: center;" >Loan Application Form</h1>
+<h1 style="text-align: center;" >Add Loan Type</h1>
 	<spr:form action="add-loan-type.htm" method="post" commandName="loanTypeMaster" >
 	<table align="center" >
 		<tr>

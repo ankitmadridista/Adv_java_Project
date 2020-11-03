@@ -10,18 +10,18 @@
 </head>
 <body>
 <h1 style="text-align: center;" >Welcome Admin</h1>
-<h4>Loan Type</h4>
+<h2 style="text-align: center;">Loan Type</h2>
 <table align="center" >
 		
 		<tr>
 			<th>
-				Loan Type:
+				Loan Type
 			</th>
 			<th>
-				Interest Rate:
+				Interest Rate
 			</th>
 			<th>
-				Status:
+				Status
 			</th>
 			
 		</tr>

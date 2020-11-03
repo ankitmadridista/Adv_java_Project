@@ -83,7 +83,7 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 			public List<LoanApply> doInHibernate(Session session) throws HibernateException {
 				Transaction tr = session.beginTransaction();
 				Query q = session.createQuery("from LoanApply where status = ?");
-				q.setString(0, "Approve");
+				q.setString(0, "Approved");
 				List<LoanApply> list = q.list();
 				tr.commit();
 				session.flush();
@@ -101,7 +101,7 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 			public List<LoanApply> doInHibernate(Session session) throws HibernateException {
 				Transaction tr = session.beginTransaction();
 				Query q = session.createQuery("from LoanApply where status = ?");
-				q.setString(0, "Reject");
+				q.setString(0, "Rejected");
 				List<LoanApply> list = q.list();
 				tr.commit();
 				session.flush();
