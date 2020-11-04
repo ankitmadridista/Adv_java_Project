@@ -1,3 +1,5 @@
+<%@page import="com.cdac.dto.LoanTypeMaster"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spr" %>    
@@ -17,9 +19,14 @@
 			</td>
 			<td>
 				<spr:select path="loanType">
-					<spr:option value="house">House</spr:option>
-					<spr:option value="car">Car</spr:option>
-					<spr:option value="Personal">Personal</spr:option>
+					<%
+					List<LoanTypeMaster> list = (List<LoanTypeMaster>)request.getAttribute("li");
+					for(LoanTypeMaster l : list ){
+					%>					
+					<spr:option value="<%=l.getLoanType() %>"><%= l.getLoanType() %></spr:option>
+					<%
+					}
+					%>
 				</spr:select>
 			</td>
 		</tr>

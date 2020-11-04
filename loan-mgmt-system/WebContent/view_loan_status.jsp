@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Application Details</title>
+<title>Loan Status</title>
 </head>
 <body>
 
@@ -73,10 +73,34 @@
 		</tr>
 		<tr>
 			<td>
-				Status:
+				EMI:
 			</td>
 			<td>
-				<%= la.getStatus() %>
+				<%= la.getEmi() %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Monthly Interest:
+			</td>
+			<td>
+				<%= la.getMonthlyInterest() %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Remaining Amount to pay
+			</td>
+			<td>
+				<%= la.getPayAmount() %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Total Interest
+			</td>
+			<td>
+				<%= la.getTotalInterest() %>
 			</td>
 		</tr>
 		<tr>
@@ -90,14 +114,12 @@
 		
 		<tr>
 			<td>
-				<a href="admin-view-apply.htm" >Back</a>
+				<a href="admin-view-loan-status.htm" >Back</a>
 			</td>
 			<td>
-				<a href="approve-loan.htm?id=<%= la.getId() %>" >Approve </a>
+				<button onclick="">Print</button>
 			</td>
-			<td>
-				<a href="reject-loan.htm?id=<%= la.getId() %>" >Reject </a>
-			</td>
+			
 		</tr>
 	</table>
 </body>

@@ -9,4 +9,6 @@ public interface LoanTypeMasterService {
 	public void insertLoanType(LoanTypeMaster loanTypeMaster);
 	public List<LoanTypeMaster> viewLoanType();
 	public LoanTypeMaster selectLoanType(String loanType);
+	public void modifyInterestRate(LoanTypeMaster loanTypeMaster);
+	public void removeInterestRate(String loanTypeMaster);
 }

@@ -29,4 +29,15 @@ public class LoanTypeMasterServiceImple implements LoanTypeMasterService {
 		return loanTypeMasterDao.findLoanType(loanType);
 	}
 
+	@Override
+	public void modifyInterestRate(LoanTypeMaster loanTypeMaster) {
+		loanTypeMasterDao.updateInterestRate(loanTypeMaster);		
+	}
+
+	@Override
+	public void removeInterestRate(String loanType) {
+		loanTypeMasterDao.deleteInterestRate(loanType);
+		
+	}
+
 }

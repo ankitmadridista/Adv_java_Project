@@ -20,8 +20,18 @@ public class LoanApplyServiceImple implements LoanApplyService {
 	}
 
 	@Override
-	public List<LoanApply> viewList(String custName) {
-		return loanApplyDao.showList(custName);
+	public List<LoanApply> viewPendingList(String custName) {
+		return loanApplyDao.showPendingList(custName);
+	}
+
+	@Override
+	public List<LoanApply> viewApproveList(String custName) {
+		return loanApplyDao.showApproveList(custName);
+	}
+
+	@Override
+	public List<LoanApply> viewRejectList(String custName) {
+		return loanApplyDao.showRejectList(custName);
 	}
 
 	@Override
@@ -37,6 +47,11 @@ public class LoanApplyServiceImple implements LoanApplyService {
 	public List<LoanApply> viewAllRejectList() {	
 		return loanApplyDao.showAllRejectList();
 	}
+	
+	@Override
+	public List<LoanApply> viewAllRepaidList() {
+		return loanApplyDao.showAllRepaidList();
+	}
 
 
 	@Override
@@ -48,5 +63,13 @@ public class LoanApplyServiceImple implements LoanApplyService {
 	public void modifyLoanStatus(LoanApply loanApply) {
 		loanApplyDao.updateLoanStatus(loanApply);
 	}
+
+	@Override
+	public void modifyInstallment(LoanApply loanApply) {
+		loanApplyDao.updateInstallment(loanApply);
+		
+	}
+
+	
 
 }

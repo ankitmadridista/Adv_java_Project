@@ -73,4 +73,46 @@ public class LoanTypeMasterDaoImple implements LoanTypeMasterDao {
 		});		
 	}
 
+	//update interest rate
+	@Override
+	public void updateInterestRate(LoanTypeMaster loanTypeMaster) {
+		System.out.println(loanTypeMaster);
+		ht.execute(new HibernateCallback<Void>() {
+
+			@Override
+			public Void doInHibernate(Session session) throws HibernateException {
+				
+				Transaction tr = session.beginTransaction();
+				
+//				System.out.println("inside update method: "+loanApply.toString());
+
+				session.update(loanTypeMaster);				
+				tr.commit();
+				session.flush();
+				session.close();
+				
+				return null;
+			}
+		
+		});
+	}
+
+	@Override
+	public void deleteInterestRate(String loanType) {
+		System.out.println(loanType);
+		ht.execute(new HibernateCallback<Void>() {
+
+			@Override
+			public Void doInHibernate(Session session) throws HibernateException {
+				Transaction tr = session.beginTransaction();
+				session.delete(new LoanTypeMaster(loanType));
+				tr.commit();
+				session.flush();
+				session.close();
+				return null;
+			}
+			
+		});
+		
+	}
 }

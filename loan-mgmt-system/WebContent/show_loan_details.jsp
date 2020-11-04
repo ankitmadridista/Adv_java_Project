@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Application Details</title>
+<title>Show Loan Details</title>
 </head>
 <body>
 
 <% LoanApply la = (LoanApply)(request.getAttribute("loanDetails"));
 %>
-<h1 style="text-align: center;" >Loan Application Details</h1>
+<h1 style="text-align: center;" >Show Loan Details</h1>
 	
 	<table align="center" >
 		<tr>
@@ -36,7 +36,7 @@
 				Tenure:
 			</td>
 			<td>
-				<%= la.getTenure() %>months
+				<%= la.getTenure() %>
 			</td>
 		</tr>
 		<tr>
@@ -73,31 +73,37 @@
 		</tr>
 		<tr>
 			<td>
-				Status:
+				Monthly Interest:
 			</td>
 			<td>
-				<%= la.getStatus() %>
+				<%= la.getMonthlyInterest() %>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				Monthly Salary:
+				Remaining To pay:
 			</td>
 			<td>
-				<%= la.getMonthlySalary() %>
+				<%= la.getPayAmount() %>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				Total Interest:
+			</td>
+			<td>
+				<%= la.getTotalInterest() %>
+			</td>
+		</tr>	
 		
 		<tr>
 			<td>
-				<a href="admin-view-apply.htm" >Back</a>
+				<a href="my-loan-or-apply.htm" >Back</a>
 			</td>
 			<td>
-				<a href="approve-loan.htm?id=<%= la.getId() %>" >Approve </a>
+				<a href="pay-installment.htm?id=<%= la.getId() %>" >Pay Installment : </a><%= la.getEmi()%>
 			</td>
-			<td>
-				<a href="reject-loan.htm?id=<%= la.getId() %>" >Reject </a>
-			</td>
+			
 		</tr>
 	</table>
 </body>

@@ -28,18 +28,27 @@ public class LoanApplyController {
 	
 	//my-loan-pending-list(front page)
 	@RequestMapping(value = "/my-loan-or-apply.htm")
-	public String myloanorapply(LoanApply loanApply, ModelMap map, HttpSession s) {
+	public String myloanorapply(LoanApply loanApply, ModelMap map1, ModelMap map2, ModelMap map3, HttpSession s) {
 		String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
-		List<LoanApply> list = loanApplyService.viewList(custName);
+		List<LoanApply> list1 = loanApplyService.viewPendingList(custName);
+		map1.put("list1", list1);
 		
-		map.put("list", list);
+		List<LoanApply> list2 = loanApplyService.viewApproveList(custName);
+		map2.put("list2", list2);
+		
+		List<LoanApply> list3 = loanApplyService.viewRejectList(custName);
+		map3.put("list3", list3);
+		
 		return "my_loan_or_apply";
 	}
 	
 	//loan-form
 	@RequestMapping(value = "/loan-apply-form.htm")
-	public String addLoanForm(LoanApply loanApply, ModelMap map) {
+	public String addLoanForm(LoanApply loanApply, ModelMap map, ModelMap map1) {
+		List<LoanTypeMaster> li = loanTypeMasterService.viewLoanType();
+		
 		map.put("loanApply", new LoanApply());
+		map1.put("li", li);
 		return "loan_apply_form";
 	}
 	
@@ -48,22 +57,47 @@ public class LoanApplyController {
 	public String addLoan(LoanApply loanApply, ModelMap map, HttpSession s) {
 		
 		String custName = ((Customer)s.getAttribute("customer")).getCustName();
-		System.out.println(custName);
-		
+		//System.out.println(custName);
+	
 		LoanTypeMaster loanTypeMaster = loanTypeMasterService.selectLoanType(loanApply.getLoanType());
 		
 		float roi = loanTypeMaster.getRateOfInt();
-		System.out.println("roi: "+roi);
+		//System.out.println("roi: "+roi);
 		
+		//calculation for extra four columns
+		float loanAmount = loanApply.getAmount();
+		float rateOfInterest = roi;
+		float tenure = loanApply.getTenure();
+		
+		System.out.println(loanAmount + " " + rateOfInterest + " " + tenure  );
+		
+		float intRatePerMonth = rateOfInterest / ( 12 * 100 );
+		float months = tenure * 12;
+		float x = 1 + intRatePerMonth;
+		float div = (float) Math.pow( x , months );
+		
+		float emi = loanAmount * intRatePerMonth * ( div / ( div - 1 )  ) ; 
+		
+		float monthlyInterest = loanAmount*intRatePerMonth;
+		
+		float payAmount = emi * months;	
+		float totalInterest = payAmount - loanAmount;
+		
+		loanApply.setEmi(emi);
+		loanApply.setMonthlyInterest(monthlyInterest);
+		loanApply.setTotalInterest(totalInterest);
+		loanApply.setPayAmount(payAmount);
 		loanApply.setCustName(custName);
 		loanApply.setStatus("Pending");
 		loanApply.setRateOfInt(roi);
 		loanApply.setApplyDate(new Date().toString());
+		
+		//System.out.println(loanApply.toString());
+
 		loanApplyService.insertLoan(loanApply);
 		map.put("loanApply", new LoanApply());
 		return "redirect:my-loan-or-apply.htm";
 	}
-	
 	
 	@RequestMapping(value = "/admin-view-apply.htm")
 	public String viewPending(LoanApply loanApply, ModelMap map1,  ModelMap map2, ModelMap map3, HttpSession s) {
@@ -88,20 +122,21 @@ public class LoanApplyController {
 	
 	@RequestMapping(value = "/view-loan-apply-details.htm")
 	public String viewLoanApplyDet(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
-		//String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
 		
+		System.out.println(id);
 		LoanApply ld = loanApplyService.viewApplyByName(id);
+		//System.out.println("from contro " + ld.toString());
 		map.put("loanDetails", ld );		
 		return "view_apply_details";
 	}	
 
-	//approve
+	//approve loan
 	@RequestMapping(value = "/approve-loan.htm")
 	public String approveLoan(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
 		
 		LoanApply la = loanApplyService.viewApplyByName(id);
 		
-		la.setStatus("Approve");
+		la.setStatus("Approved");
 		
 		System.out.println(la.toString());
 		
@@ -111,13 +146,13 @@ public class LoanApplyController {
 		return "redirect:admin-view-apply.htm";
 	}	
 	
-	//reject
+	//reject loan
 	@RequestMapping(value = "/reject-loan.htm")
 	public String rejectLoan(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
 		
 		LoanApply la = loanApplyService.viewApplyByName(id);
 		
-		la.setStatus("Reject");
+		la.setStatus("Rejected");
 		
 		System.out.println(la.toString());
 		
@@ -127,5 +162,76 @@ public class LoanApplyController {
 		return "redirect:admin-view-apply.htm";
 	}	
 	
+	//show loan details
+	@RequestMapping(value = "/show-loan-details.htm")
+	public String showLoanDetails(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
+		
+		System.out.println(id);
+		LoanApply ld = loanApplyService.viewApplyByName(id);
+		//System.out.println("from contro " + ld.toString());
+		map.put("loanDetails", ld );		
+		return "show_loan_details";
+	}	
+	
+	
+	//update installment 
+	@RequestMapping(value = "/pay-installment.htm")
+	public String updateInstallment(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
+		System.out.println("id " + id);
+		LoanApply la = loanApplyService.viewApplyByName(id);
+		
+		float emi = la.getEmi();
+		float payAmount = la.getPayAmount();
+		
+		payAmount -= emi;
+		
+		if(payAmount > 0) {
+		
+			la.setPayAmount(payAmount);
+		
+			System.out.println(la.toString());
+			
+			loanApplyService.modifyInstallment(la);
+			//map.put("list", list);
+			System.out.println("updation done");
+			return "success";
+		}
+		else {
+			la.setStatus("Repaid");
+			la.setPayAmount(0);
+			
+			System.out.println(la.toString());
+			
+			loanApplyService.modifyInstallment(la);
+			//map.put("list", list);
+			System.out.println("updation done");
+			return "redirect:my-loan-or-apply.htm";
+		}		
+	}
+	
+	//admin view loan status
+	@RequestMapping(value = "/admin-view-loan-status.htm")
+	public String adminViewLoanStatus(LoanApply loanApply, ModelMap map1, ModelMap map2, HttpSession s) {
+		//String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
+		List<LoanApply> list1 = loanApplyService.viewAllApproveList();
+		map1.put("list1", list1);
+		System.out.println(list1);
+		
+		List<LoanApply> list2 = loanApplyService.viewAllRepaidList();;
+		map2.put("list2", list2);
+		
+		return "admin_loan_status";
+	}
+	
+	//view-loan-status.htm
+	@RequestMapping(value = "/view-loan-status.htm")
+	public String viewLoanStatus(@RequestParam int id, LoanApply loanApply, ModelMap map, HttpSession s) {
+		
+		System.out.println(id);
+		LoanApply ld = loanApplyService.viewApplyByName(id);
+		//System.out.println("from contro " + ld.toString());
+		map.put("loanDetails", ld );		
+		return "view_loan_status";
+	}		
 	
 }

@@ -17,6 +17,11 @@ public class LoanApply {
 	private String applyDate;
 	private String Status;
 	private float monthlySalary;
+	private float emi;
+	//total amt with interest
+	private float payAmount;
+	private float monthlyInterest;
+	private float totalInterest;
 	
 	public LoanApply() {
 	
@@ -76,13 +81,38 @@ public class LoanApply {
 	public void setMonthlySalary(float monthlySalary) {
 		this.monthlySalary = monthlySalary;
 	}
-
-
+	
+	public float getEmi() {
+		return emi;
+	}
+	public void setEmi(float emi) {
+		this.emi = emi;
+	}
+	public float getPayAmount() {
+		return payAmount;
+	}
+	public void setPayAmount(float payAmount) {
+		this.payAmount = payAmount;
+	}
+	public float getMonthlyInterest() {
+		return monthlyInterest;
+	}
+	public void setMonthlyInterest(float monthlyInterest) {
+		this.monthlyInterest = monthlyInterest;
+	}
+	public float getTotalInterest() {
+		return totalInterest;
+	}
+	public void setTotalInterest(float totalInterest) {
+		this.totalInterest = totalInterest;
+	}
 	@Override
 	public String toString() {
 		return " id=" + id + ", custName=" + custName + ", loanType=" + loanType + ", amount=" + amount + ", tenure="
 				+ tenure + ", rateOfInt=" + rateOfInt + ", applyDate=" + applyDate + ", Status=" + Status
-				+ ", monthlySalary=" + monthlySalary;
+				+ ", monthlySalary=" + monthlySalary + ", emi=" + emi + ", payAmount=" + payAmount
+				+ ", monthlyInterest=" + monthlyInterest + ", totalInterest=" + totalInterest;
 	}
+	
 
 }

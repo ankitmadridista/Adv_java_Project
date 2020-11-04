@@ -10,7 +10,12 @@ public class LoanTypeMaster {
 	private float rateOfInt;
 	public LoanTypeMaster() {
 		
+	}	
+	public LoanTypeMaster(String loanType) {
+		super();
+		this.loanType = loanType;
 	}
+
 	public String getLoanType() {
 		return loanType;
 	}

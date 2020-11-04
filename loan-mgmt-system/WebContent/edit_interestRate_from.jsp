@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="spr" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,41 +12,37 @@
 <body>
 <h1 style="text-align: center;" >Welcome Admin</h1>
 <h2 style="text-align: center;">Loan Type</h2>
+
+<spr:form action="update-interest-rate.htm" method="post" commandName="loanTypeMaster" >
 <table align="center" >
 		
 		<tr>
-			<th>
-				Loan Type
-			</th>
-			<th>
-				Interest Rate
-			</th>
-			<th>
-				Edit / Delete
-			</th>
-			
-		</tr>
-		<% List<LoanTypeMaster> li =(List<LoanTypeMaster>)request.getAttribute("list");
-		
-		for( LoanTypeMaster l : li) { %>
-		
-		<tr>
 			<td>
-				<%=l.getLoanType() %>
+				
 			</td>
 			<td>
-				<%=l.getRateOfInt() %>
-			</td>
-		
-			<td>
-				<a href="edit-admin-interestRate.htm?loanType=<%=l.getLoanType() %>"> Edit </a>
-				<a href="delete-loan-type.htm?loanType=<%=l.getLoanType() %>"> Delete </a>
+				<spr:hidden path="loanType"/>
 			</td>		
 		</tr>
+		<tr>
+			<td>
+				Interest Rate
+			</td>
+			<td>
+				<spr:input path="rateOfInt"/>
+			</td>		
+		</tr>		
+		<tr>
+			<td>
+				<input type="submit" value="Update Interest:" >
+			</td>
+			<td>
+				<a href="show-loan-type.htm" >Back</a>
+			</td>
+		</tr>
 
-<%} %>
 </table>
+</spr:form>
 
-<a href="admin_home.jsp" >Back</a>
 </body>
 </html>
