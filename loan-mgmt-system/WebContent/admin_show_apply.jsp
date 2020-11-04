@@ -4,200 +4,227 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Admin Apply Loan</title>
+<head><title>Admin Show Applications</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0ff6456f25.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
+<%@ include file="navbar.jsp" %>
+
+
+
 <h1 style="text-align: center;" >Welcome Admin</h1>
-<h4>Pendding Approval</h4>
-<table align="center" >
-		
-		<tr>
-			<th>
-				Id:
-			</th>
-			<th>
-				Cust Name
-			</th>
-			<th>
-				Loan Type
-			</th>
-			<th>
-				Amount
-			</th>
-			<th>
-				Tenure
-			</th>
-			<th>
-				Int rate
-			</th>
-			<th>
-				Apply Date
-			</th>
-			<th>
-				Status
-			</th>		
-		</tr>
-		<% List<LoanApply> li1 =(List<LoanApply>)request.getAttribute("list1");
-		
-		for( LoanApply l : li1) { %>
-		
-		<tr>
-			<td>
-				<%=l.getId() %>
-			</td>
-			<td>
-				<%=l.getCustName() %>
-			</td>
-			<td>
-				<%=l.getLoanType() %>
-			</td>
-			<td>
-				<%=l.getAmount() %>
-			</td>
-			<td>
-				<%=l.getTenure() %>	
-			</td>
-			<td>
-				<%= l.getRateOfInt() %>	%
-			</td>
-			<td>
-				<%=l.getApplyDate() %>
-			</td>
-			<td>
-				<a href="view-loan-apply-details.htm?id=<%=l.getId() %>"> View </a>
-			</td>
-		</tr>
 
-<%} %>
-</table>
-<br>
-<h4>View Approved</h4>
-<table align="center" >
-		
-		<tr>
-			<th>
-				Id:
-			</th>
-			<th>
-				Cust Name
-			</th>
-			<th>
-				Loan Type
-			</th>
-			<th>
-				Amount
-			</th>
-			<th>
-				Tenure
-			</th>
-			<th>
-				Int rate
-			</th>
-			<th>
-				Apply Date
-			</th>
-			<th>
-				Status
-			</th>		
-		</tr>
-		<% List<LoanApply> li2 =(List<LoanApply>)request.getAttribute("list2");
-		
-		for( LoanApply l : li2) { %>
-		
-		<tr>
-			<td>
-				<%=l.getId() %>
-			</td>
-			<td>
-				<%=l.getCustName() %>
-			</td>
-			<td>
-				<%=l.getLoanType() %>
-			</td>
-			<td>
-				<%=l.getAmount() %>
-			</td>
-			<td>
-				<%=l.getTenure() %>	
-			</td>
-			<td>
-				<%= l.getRateOfInt() %>%
-			</td>
-			<td>
-				<%=l.getApplyDate() %>
-			</td>
-			<td>
-				<%=l.getStatus() %>
-			</td>
-		</tr>
 
-<%} %>
-</table><br>
+  <div class="container-fluid">    
+      
+     <!-- pending apprpval table -->
+      <div class="row" >
+        <div id="top" class="container-fluid ">
+		<div class="row content">
+			
+		</div>
+		
+		<div class="row content">
+			<div class=" col-sm-12 main jumbotron">
+		
+			
+			<a href="admin_home.jsp" style="color: black  "  >
+				<button type="button" class="btn btn-dark  btn-sm" >
+				
+				Back
+				</button></a>
 
-<h4>View Rejected</h4>
-<table align="center" >
+				<h3 class="text-center">
+					<b>Pendding Approval</b>
+					
+					</h3>
+							
+				<div class="table-responsive" id="myTable"></div>
+				<table class="table  table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th class="align-middle">Id</th>
+							<th class="align-middle">Name</th>
+							<th class="align-middle">Loan Type</th>
+							<th class="align-middle">Amount</th> 
+							<th class="align-middle">Tenure</th>
+							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Apply Date</th>
+							<th class="align-middle">Status</th> 
+							<th class="align-middle">View</th> 
+						</tr>
+					</thead>
+					<tbody id="myTableBody">
+					<% List<LoanApply> li1 =(List<LoanApply>)request.getAttribute("list1");
 		
-		<tr>
-			<th>
-				Id:
-			</th>
-			<th>
-				Cust Name
-			</th>
-			<th>
-				Loan Type
-			</th>
-			<th>
-				Amount
-			</th>
-			<th>
-				Tenure
-			</th>
-			<th>
-				Int rate
-			</th>
-			<th>
-				Apply Date
-			</th>
-			<th>
-				Status
-			</th>		
-		</tr>
-			<% List<LoanApply> li3 =(List<LoanApply>)request.getAttribute("list3");
-		
-		for( LoanApply l : li3) { %>
-		
-		<tr>
-			<td>
-				<%=l.getId() %>
-			</td>
-			<td>
-				<%=l.getCustName() %>
-			</td>
-			<td>
-				<%=l.getLoanType() %>
-			</td>
-			<td>
-				<%=l.getAmount() %>
-			</td>
-			<td>
-				<%=l.getTenure() %>	
-			</td>
-			<td>
-				<%= l.getRateOfInt() %>%
-			</td>
-			<td>
-				<%=l.getApplyDate() %>
-			</td>
-			<td>
-				<%=l.getStatus() %>
-			</td>
-		</tr>
+						for( LoanApply l : li1) { %>
+						<tr style="">
+							<td class="align-middle"><%= l.getId() %></td>
+							<td class="align-middle"><%= l.getCustName() %></td>
+							<td class="align-middle"><%= l.getLoanType() %></td>
+							<td class="align-middle"><%= l.getAmount() %></td>
+							<td class="align-middle"><%= l.getTenure() %></td>
+							<td class="align-middle"><%= l.getRateOfInt() %></td>
+							<td class="align-middle"><%= l.getApplyDate() %></td>
+							<td class="align-middle"><%= l.getStatus() %></td>
+							<td class="align-middle">
+							<a href="view-loan-apply-details.htm?id=<%=l.getId() %>">
+								
+				<button type="button" class="btn btn-danger  btn-sm" id="btn0" data-toggle="modal" data-target="#myModal">View!</button></a>
 
-<%} %>
-</table><br>
-<a href="admin_home.jsp" >Back</a>
+																	
+							</td>
+							
+						</tr>
+						<% } %>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+       
+      </div>
+      
+      
+       <!-- apprpved table -->
+       
+       
+       <div class="row" >
+        <div id="top" class="container-fluid ">
+		<div class="row content">
+			
+		</div>
+		
+		<div class="row content">
+			<div class=" col-sm-12 main jumbotron">
+				<h3 class="text-center">
+					<b>Approved </b>
+				</h3>
+				
+				<div class="table-responsive" id="myTable"></div>
+				<table class="table  table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th class="align-middle">Id</th>
+							<th class="align-middle">Name</th>
+							<th class="align-middle">Loan Type</th>
+							<th class="align-middle">Amount</th> 
+							<th class="align-middle">Tenure</th>
+							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Apply Date</th>
+							<th class="align-middle">Status</th> 
+						</tr>
+					</thead>
+					<tbody id="myTableBody">
+					<% List<LoanApply> li2 =(List<LoanApply>)request.getAttribute("list2");
+		
+						for( LoanApply l : li2) { %>
+						<tr style="">
+							<td class="align-middle"><%= l.getId() %></td>
+							<td class="align-middle"><%= l.getCustName() %></td>
+							<td class="align-middle"><%= l.getLoanType() %></td>
+							<td class="align-middle"><%= l.getAmount() %></td>
+							<td class="align-middle"><%= l.getTenure() %></td>
+							<td class="align-middle"><%= l.getRateOfInt() %></td>
+							<td class="align-middle"><%= l.getApplyDate() %></td>
+							<td class="align-middle"><%= l.getStatus() %></td>
+					
+							
+						</tr>
+						<% } %>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+       
+      </div>
+      
+       
+       
+       <!-- rejected  -->
+       
+       
+        <div class="row" >
+        <div id="top" class="container-fluid ">
+		<div class="row content">
+			
+		</div>
+		
+		<div class="row content">
+			<div class=" col-sm-12 main jumbotron">
+				<h3 class="text-center">
+					<b>Rejected </b>
+				</h3>
+				
+				<div class="table-responsive" id="myTable"></div>
+				<table class="table  table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th class="align-middle">Id</th>
+							<th class="align-middle">Name</th>
+							<th class="align-middle">Loan Type</th>
+							<th class="align-middle">Amount</th> 
+							<th class="align-middle">Tenure</th>
+							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Apply Date</th>
+							<th class="align-middle">Status</th> 
+						</tr>
+					</thead>
+					<tbody id="myTableBody">
+						<% List<LoanApply> li3 =(List<LoanApply>)request.getAttribute("list3");
+		
+							for( LoanApply l : li3) { %>
+						<tr style="">
+							<td class="align-middle"><%= l.getId() %></td>
+							<td class="align-middle"><%= l.getCustName() %></td>
+							<td class="align-middle"><%= l.getLoanType() %></td>
+							<td class="align-middle"><%= l.getAmount() %></td>
+							<td class="align-middle"><%= l.getTenure() %></td>
+							<td class="align-middle"><%= l.getRateOfInt() %></td>
+							<td class="align-middle"><%= l.getApplyDate() %></td>
+							<td class="align-middle"><%= l.getStatus() %></td>
+							
+						</tr>
+						<% } %>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+     
+      </div>
+       
+      
+    </div>
+
+      
+
+
+<%@ include file="footer.jsp" %>
 </body>
 </html>

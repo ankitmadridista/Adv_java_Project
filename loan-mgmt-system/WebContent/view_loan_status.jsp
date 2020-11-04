@@ -2,125 +2,97 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spr" %>    
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Loan Status</title>
+     <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0ff6456f25.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
-
 <% LoanApply la = (LoanApply)(request.getAttribute("loanDetails"));
 %>
-<h1 style="text-align: center;" >Loan Application Details</h1>
+
+
+<h1 style="text-align: center;" >Loan Status</h1>
+<div class="container-fluid">
+         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      
+       <!------ Include the above in your HEAD tag ---------->
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="invoice-title">
+                        
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <address>
+                            <strong>Customer Name: <%= la.getCustName() %> </strong><br>
+                                <b>Amount:<%= la.getAmount() %> </b><br>
+                                <b>Tenure: <%= la.getTenure() %></b><br>                                
+                                <b>Monthly Salary: <%= la.getMonthlySalary() %></b><br>
+                                <b>Interest Rate: <%= la.getRateOfInt() %></b><br>                            	
+                                <b>Loan Type: <%= la.getLoanType() %></b><br>                                
+                                <b>EMI: <%= la.getEmi() %></b><br>
+                                <b>Monthly Interest: <%= la.getMonthlyInterest() %></b><br> 
+                                <b>Amount to be paid <%= la.getPayAmount()  %></b><br>
+                                <b>Total Interest <%= la.getTotalInterest() %></b><br>
+                                
+                                
+                            </address>
+                        </div>
+                        <div class="col-xs-2 text-right">
+                            <address>
+                               
+                                <strong>Application Date:</strong><br>
+                                <%= la.getApplyDate() %><br><br>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+     <div style="text-align: center;">
+        <input class="btn btn-secondary" onclick="window.print()" type="button" value="Print">
+        <br><br><br><br>
+        <a href="admin-view-loan-status.htm">Back </a>
+    </div>
+        
+     
+    </div>
+
 	
-	<table align="center" >
-		<tr>
-			<td>
-				Customer Name:
-			</td>
-			<td>
-				<%= la.getCustName() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Amount:
-			</td>
-			<td>
-				<%= la.getAmount() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Tenure:
-			</td>
-			<td>
-				<%= la.getTenure() %>months
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Monthly Salary:
-			</td>
-			<td>
-				<%= la.getMonthlySalary() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Apply date:
-			</td>
-			<td>
-				<%= la.getApplyDate() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Interest Rate:
-			</td>
-			<td>
-				<%= la.getRateOfInt() %> %
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Loan Type:
-			</td>
-			<td>
-				<%= la.getLoanType() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				EMI:
-			</td>
-			<td>
-				<%= la.getEmi() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Monthly Interest:
-			</td>
-			<td>
-				<%= la.getMonthlyInterest() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Remaining Amount to pay
-			</td>
-			<td>
-				<%= la.getPayAmount() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Total Interest
-			</td>
-			<td>
-				<%= la.getTotalInterest() %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Monthly Salary:
-			</td>
-			<td>
-				<%= la.getMonthlySalary() %>
-			</td>
-		</tr>
-		
-		<tr>
-			<td>
-				<a href="admin-view-loan-status.htm" >Back</a>
-			</td>
-			<td>
-				<button onclick="">Print</button>
-			</td>
-			
-		</tr>
-	</table>
+	
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
@@ -69,37 +69,58 @@
     </style>
   </head>
 <body>
-<div class="container-fluid">
-<nav
-      class="navbar navbar-expand fixed-top text-light navbar-dark bg-primary justify-content-between"
-    >
-     
-      <div class="nav navbar-nav" style="font-family: cursive; font-size: 25px">
-        <b> Loan Management System
-        </b>
-      </div>
-      <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" href=""> </a>
-      </div><div class="nav navbar-nav">
-        <a class="nav-item nav-link active" href=""> </a>
-      </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <a class="navbar-brand" href="#">Navbar </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact-us</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        
+        <div class="d-flex">
+          <a class="nav-link" href="cust-log-form.htm">Sign In </a>
+          
+        </div>
+       
+      </span>
+       <span class="navbar-text">
+        
+        <div class="d-flex">
+          <a class="nav-link"  href="cust-reg-form.htm">Sign up </a>
+          
+        </div>
+       
+      </span>
+      
+    </div>
+  </nav>
+  
+  <div class="container-fluid">
+
       <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="cust-log-form.htm" >Sign In</a>
       </div>
       <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="cust-reg-form.htm" >Sign Up</a>
       </div>
-    </nav>
+  
 </div>
-	
-	 <footer class="page-footer font-small bg-primary text-light fixed-bottom">
-      <div class="footer-copyright text-center">Created by : </div>
-      <!-- Copyright -->
-      <div class="footer-copyright text-center">
-        � 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> CDAC</a>
-      </div>
-      <!-- Copyright -->
-    </footer>
-</body>
-</html>
+
+<%@ include file = "footer.jsp" %>
+  </body>
+  
+  </html>
+
+

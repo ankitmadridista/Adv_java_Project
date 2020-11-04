@@ -6,43 +6,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+
 <title>Loan Type list</title>
+<meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0ff6456f25.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
-<h1 style="text-align: center;" >Welcome Admin</h1>
-<h2 style="text-align: center;">Loan Type</h2>
+<%@ include file="navbar.jsp" %>
+<br><br><br>
+<h2 style="text-align: center; font-size: 9vh; font-family: serif;">Loan Type</h2><br>
 
-<spr:form action="update-interest-rate.htm" method="post" commandName="loanTypeMaster" >
-<table align="center" >
-		
-		<tr>
-			<td>
-				
-			</td>
-			<td>
-				<spr:hidden path="loanType"/>
-			</td>		
-		</tr>
-		<tr>
-			<td>
-				Interest Rate
-			</td>
-			<td>
-				<spr:input path="rateOfInt"/>
-			</td>		
-		</tr>		
-		<tr>
-			<td>
-				<input type="submit" value="Update Interest:" >
-			</td>
-			<td>
-				<a href="show-loan-type.htm" >Back</a>
-			</td>
-		</tr>
+<spr:form action="update-interest-rate.htm" method="post" commandName="loanTypeMaster" style="width: 80vh; margin-left: 67vh" >
 
-</table>
+  
+  <div class="form-group">
+  
+  <spr:hidden path="loanType"/>
+    <label for="exampleInputPassword1"><b>New Interest Rate</b></label>
+        
+    
+    <spr:input class="form-control" placeholder="Interest Rate" path="rateOfInt"/>
+  </div><br>
+  
+  <button type="submit" class="btn btn-primary btn-block">Submit</button>
 </spr:form>
+
+<div style="text-align: center;"><br><br><br>
+	<a href="show-loan-type.htm" >Back</a>
+</div>
+
+
+<%@ include file="footer.jsp" %>
 
 </body>
 </html>

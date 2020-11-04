@@ -4,15 +4,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>EMI Calc Form</title>
+     <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0ff6456f25.js"
+      crossorigin="anonymous"
+    ></script>
 <script type="text/javascript">
 function hello() {
 	console.log("in hello");
-	let loanAmount = document.getElementById("loanAmount").value;
+	
+	let loanAmount = document.getElementById("loanAmount").value.trim(" ");
 	//let loanType = document.getElementsByName("loanType").value;
-	let ratOfInterest = document.getElementById("interestRate").value;
-	let tenure = document.getElementById("tenure").value;
+	let ratOfInterest = document.getElementById("interestRate").value.trim(" ");
+	let tenure = document.getElementById("tenure").value.trim(" ");
+
+	if( loanAmount && ratOfInterest && tenure != ""){
+
+
 	let intRatePerMonth = ratOfInterest / ( 12 * 100 );
 	let n = tenure * 12;
 	let x = 1 + intRatePerMonth;
@@ -55,65 +78,22 @@ function hello() {
     document.querySelector("#loanAmount").value = "";
     document.querySelector("#interestRate").value = "";
     document.querySelector("#tenure").value = "";
-	
+
+	}
 }
 </script>
 
 </head>
 <body>
-<form action="" method="post">
-	<table align="center" >
-		<tr>
-			<td>
-				Loan Amount:
-			</td>
-			<td>
-				<input id="loanAmount" type="text" name="loanAmount"/>
-			</td>
-		</tr>
-		<tr>
-		<td>
-			Loan Type:
-		</td>
-		<td>
-			<select name="loanType">
-				<option value="house">House</option>
-				<option value="car">Car</option>
-				<option value="Personal">Personal</option>
-			</select>
-		</td>
-		</tr>
-		<tr>
-			<td>
-				Rate of Interest:
-			</td>
-			<td>
-				<input type="text" id="interestRate" name="interestRate"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Tenure (in years):
-			</td>
-			<td>
-				<input type="text" id="tenure" name="loanYears"/>
-			</td>
-		</tr>
-		
-		<tr>
-			<td>
-				<a href="home.jsp" >Back</a>
-			</td>
-			<td>
-				<input type="button"  value="Calculate" onclick="hello()" >
-			</td>
-		</tr>
-	</table>
-	</form>
-	
-	     <div style="text-align: center;">
-            <div id="clone" style="visibility: hidden;" >
+<%@ include file="navbar.jsp" %>
+<br>
+<div style="text-align: center">
+	<h2>EMI CALCULATOR </h2>
+</div>
 
+		<div style="text-align: center; font-size: 20px; font-weight: bold;">
+            <div id="clone" style="visibility: hidden;" >
+				
                 <div >
                     EMI :
                 </div>
@@ -129,5 +109,35 @@ function hello() {
 
             </div>
         </div>
+
+<form action="" method="post" style="width: 80vh; margin-left: 67vh">
+  <div class="form-group">
+    <label for="exampleInputEmail1"><b>Loan Amount</b> </label>
+    <input class="form-control" placeholder="Loan Amount" id="loanAmount" type="text" name="loanAmount">
+     </div>
+	
+    
+    <div class="form-group">
+    <label for="exampleInputEmail1"><b>Interest Rate</b> </label>
+    <input class="form-control" placeholder="Interest Rate" type="text" id="interestRate" name="interestRate">
+     </div>
+     
+     <div class="form-group">
+    <label for="exampleInputEmail1"><b>Tenure (in years):</b> </label>
+    <input class="form-control" placeholder="Tenure in years" type="text" id="tenure" name="loanYears">
+     </div>
+    
+     
+    <button type="button" class="btn btn-primary btn-block" onclick="hello()">Calculate</button>
+</form>
+<br>
+
+	<div style="text-align: center;">
+        <a href="home.jsp">Back</a>
+    </div>
+
+
+    <%@ include file="footer.jsp" %>    
+        
 </body>
 </html>

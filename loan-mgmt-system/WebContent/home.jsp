@@ -1,10 +1,11 @@
+<%@page import="com.cdac.dto.Customer"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
- <!-- Required meta tags -->
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -24,80 +25,49 @@
       src="https://kit.fontawesome.com/0ff6456f25.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      body {
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      .img {
-        width: 50vh;
-        height: 50vh;
-        margin-left: 25%;
-        margin-top: 10%;
-      }
-
-      #icn {
-        font-size: 25px;
-        margin: 19px;
-        color: white;
-        cursor: pointer;
-      }
-
-      .mobileShow {
-        display: inline;
-      }
-
-      /* Smartphone Portrait and Landscape */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 580px) {
-        .mobileShow {
-          display: inline;
-        }
-      }
-
-      .mobileHide {
-        display: inline;
-      }
-
-      /* Smartphone Portrait and Landscape */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 580px) {
-        .mobileHide {
-          display: none;
-        }
-      }
-    </style>
     </head>
 <body>
-<nav
-      class="navbar navbar-expand fixed-top text-light navbar-dark bg-dark justify-content-between"
-    >
-      <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" > </a
-        >
-      </div>
-      <div class="nav navbar-nav" style="font-family: cursive; font-size: 25px">
-        <b> Loan Management System
-        </b>
-      </div>
-      <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" >Login </a>
-      </div>
-    </nav>
-Welcome<br><br>
-<%= session.getAttribute("customer").toString() %><br><br>
+<%@ include file="navbar.jsp"  %>
+<% Customer c = (Customer)session.getAttribute("customer");
 
-<a href="my-loan-or-apply.htm">My Loan / Apply For Loan</a><br><br>
-<a href="emi-calc-form.htm">EMI Calculator</a><br><br>
+%><br>
+<div class="display-4" style="text-align: center; font-family: serif;">
+Welcome
+<%= c.getCustName() %>
+</div>
 
+<br><br>
 
- <footer class="page-footer font-small bg-dark text-light fixed-bottom">
-      <div class="footer-copyright text-center">Created by : </div>
-      <!-- Copyright -->
-      <div class="footer-copyright text-center">
-        � 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> CDAC</a>
-      </div>
-      <!-- Copyright -->
-    </footer>
+	<div style="text-align: center; color: black; font-size: 25px; background: whitesmoke">
+		<a href="my-loan-or-apply.htm">My Loan / Apply For Loan</a><br><br>
+		<a href="emi-calc-form.htm">EMI Calculator</a>
+		
+	</div>
+<div style="height: 200px">
+
+</div>
+<div class="container-fluid ">
+<div class="row justify-content-between " style="text-align: center; color: blue; font-size: 25px; background: whitesmoke">
+
+<div class="ml-2" >
+	<h3>Customer Id: 
+	<small>
+		<%= c.getCustId() %>
+	</small>
+	</h3>
+
+</div>
+<div class="mr-2" >
+
+	<h3>Email Id: 
+	<small>
+		<%= c.getCustEmail()%>
+	</small>
+	</h3>
+</div>
+</div>
+</div>
+
+ <%@ include file="footer.jsp" %>
 </body>
 </html>

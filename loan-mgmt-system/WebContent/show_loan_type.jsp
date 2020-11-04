@@ -5,47 +5,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Loan Type list</title>
+<title>show loan types</title>
+ <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0ff6456f25.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
-<h1 style="text-align: center;" >Welcome Admin</h1>
-<h2 style="text-align: center;">Loan Type</h2>
-<table align="center" >
-		
-		<tr>
-			<th>
-				Loan Type
-			</th>
-			<th>
-				Interest Rate
-			</th>
-			<th>
-				Edit / Delete
-			</th>
+<%@ include file="navbar.jsp" %>
+
+
+<div class="container-fluid">    
+      
+     <!-- pending apprpval table -->
+      <div class="row" >
+        <div id="top" class="container-fluid ">
+		<div class="row content">
 			
-		</tr>
-		<% List<LoanTypeMaster> li =(List<LoanTypeMaster>)request.getAttribute("list");
+		</div>
 		
-		for( LoanTypeMaster l : li) { %>
 		
-		<tr>
-			<td>
-				<%=l.getLoanType() %>
-			</td>
-			<td>
-				<%=l.getRateOfInt() %>
-			</td>
+		<!-- loan Status -->
+		<div class="row content">
+			<div class=" col-sm-12 main jumbotron">
 		
-			<td>
-				<a href="edit-admin-interestRate.htm?loanType=<%=l.getLoanType() %>"> Edit </a>
-				<a href="delete-loan-type.htm?loanType=<%=l.getLoanType() %>"> Delete </a>
-			</td>		
-		</tr>
+			
+			<a href="admin_home.jsp" style="color: black  "  >
+				<button type="button" class="btn btn-dark  btn-sm" >
+				
+				Back
+				</button></a>
+</a> 
+				<h3 class="text-center">
+					<b>Loan Status</b>
+					
+					</h3>
+							
+				<div class="table-responsive" id="myTable"></div>
+				<table class="table  table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th class="align-middle">Loan Type</th>							
+							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Edit</th>
+							<th class="align-middle">Delete</th> 
+						</tr>
+					</thead>
+					<tbody id="myTableBody">
+						<% List<LoanTypeMaster> li =(List<LoanTypeMaster>)request.getAttribute("list");
+		
+						for( LoanTypeMaster l : li) { %>
+						<tr style="">
+						
+							<td class="align-middle"><%= l.getLoanType() %></td>
+					
+							<td class="align-middle"><%= l.getRateOfInt() %></td>
+							<td class="align-middle">
+								<a href="edit-admin-interestRate.htm?loanType=<%=l.getLoanType() %>"> 
+									<button type="button" class="btn btn-primary  btn-sm" >Edit</button>						
+								</a>
+							</td>
+								<td class="align-middle">
+								<a href="delete-loan-type.htm?loanType=<%=l.getLoanType() %>">
+									<button type="button" class="btn btn-danger  btn-sm" >Delete</button> 
+								</a>
+							</td>
+							
+							
+						</tr>
+						<% } %>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</div>       
+    </div>
+ </div>
 
-<%} %>
-</table>
 
-<a href="admin_home.jsp" >Back</a>
+ <div style="text-align: center;">
+        <br><br><br><br>
+        <a href="admin_home.jsp">Back </a>
+    </div>
+
+<%@ include file="footer.jsp" %>
 </body>
 </html>
