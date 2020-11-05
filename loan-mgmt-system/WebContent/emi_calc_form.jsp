@@ -29,56 +29,49 @@ function hello() {
 	console.log("in hello");
 	
 	let loanAmount = document.getElementById("loanAmount").value.trim(" ");
-	//let loanType = document.getElementsByName("loanType").value;
 	let ratOfInterest = document.getElementById("interestRate").value.trim(" ");
 	let tenure = document.getElementById("tenure").value.trim(" ");
 
 	if( loanAmount && ratOfInterest && tenure != ""){
-
-
-	let intRatePerMonth = ratOfInterest / ( 12 * 100 );
-	let n = tenure * 12;
-	let x = 1 + intRatePerMonth;
-	let div = Math.pow( x , n );
+		flag = 1;
+		let intRatePerMonth = ratOfInterest / ( 12 * 100 );
+		let n = tenure * 12;
+		let x = 1 + intRatePerMonth;
+		let div = Math.pow( x , n );
+		
+		let res = loanAmount * intRatePerMonth * ( div / ( div - 1 )  ) ; 
+		
+		console.log("amt " + loanAmount);	
+		console.log("roi " + ratOfInterest);	
+		console.log("ten " + tenure);	
+		console.log("n " + n);	
+		console.log("div " + div);	
+		console.log("x " + x);
+		console.log("int/month " + intRatePerMonth);	
+		let monthlyInterest = loanAmount*intRatePerMonth;
+		console.log("Monthly Int "+ monthlyInterest);	
+		console.log("Emi "+ res);	
+		let total = res*n;
+		console.log("Total of 12 months "+ total);	
+		let totalInterest = total - loanAmount
+		console.log("Total Int "+ totalInterest);	
 	
-	let res = loanAmount * intRatePerMonth * ( div / ( div - 1 )  ) ; 
+		let dispBox = document.querySelector("#clone").cloneNode(true);
 	
-	console.log("amt " + loanAmount);	
-	console.log("roi " + ratOfInterest);	
-	console.log("ten " + tenure);	
-	console.log("n " + n);	
-	console.log("div " + div);	
-	console.log("x " + x);
-	console.log("int/month " + intRatePerMonth);	
-	let monthlyInterest = loanAmount*intRatePerMonth;
-	console.log("Monthly Int "+ monthlyInterest);	
-	console.log("Emi "+ res);	
-	let total = res*n;
-	console.log("Total of 12 months "+ total);	
-	let totalInterest = total - loanAmount
-	console.log("Total Int "+ totalInterest);	
-
-
-	let dispBox = document.querySelector("#clone").cloneNode(true);
-
-    dispBox.removeAttribute("id");
-    dispBox.style.visibility = "visible";
-    //dispBox.children[0]
-
-    dispBox.children[0].innerHTML = dispBox.children[0].innerHTML + res;
-    dispBox.children[1].innerHTML = dispBox.children[1].innerHTML + monthlyInterest;
-    dispBox.children[2].innerHTML = dispBox.children[2].innerHTML + total;
-    dispBox.children[3].innerHTML = dispBox.children[3].innerHTML + totalInterest;
-
-    let parentEle = document.querySelector("#clone").parentElement;
-
-    //console.log(parentEle);
-    parentEle.insertBefore(dispBox, parentEle.firstChild);
-
-    document.querySelector("#loanAmount").value = "";
-    document.querySelector("#interestRate").value = "";
-    document.querySelector("#tenure").value = "";
-
+	    dispBox.removeAttribute("id");
+	    dispBox.style.visibility = "visible";
+	  
+	    dispBox.children[0].innerHTML = dispBox.children[0].innerHTML + res;
+	    dispBox.children[1].innerHTML = dispBox.children[1].innerHTML + monthlyInterest;
+	    dispBox.children[2].innerHTML = dispBox.children[2].innerHTML + total;
+	    dispBox.children[3].innerHTML = dispBox.children[3].innerHTML + totalInterest;
+	
+	    let parentEle = document.querySelector("#clone").parentElement;
+	    parentEle.insertBefore(dispBox, parentEle.firstChild);
+	
+	    document.querySelector("#loanAmount").value = "";
+	    document.querySelector("#interestRate").value = "";
+	    document.querySelector("#tenure").value = "";
 	}
 }
 </script>
@@ -91,24 +84,7 @@ function hello() {
 	<h2>EMI CALCULATOR </h2>
 </div>
 
-		<div style="text-align: center; font-size: 20px; font-weight: bold;">
-            <div id="clone" style="visibility: hidden;" >
-				
-                <div >
-                    EMI :
-                </div>
-                <div>
-                    Monthly Interest :
-                </div>
-                <div >
-                    Total :
-                </div>
-                <div >
-                    Total interest :
-                </div>
-
-            </div>
-        </div>
+		
 
 <form action="" method="post" style="width: 80vh; margin-left: 67vh">
   <div class="form-group">
@@ -131,7 +107,27 @@ function hello() {
     <button type="button" class="btn btn-primary btn-block" onclick="hello()">Calculate</button>
 </form>
 <br>
-
+		<div style="text-align: center; font-size: 20px; font-weight: bold; ">
+            <div id="clone" style="visibility: hidden;" >				
+                <div >
+                    EMI(Monthly Installments) :
+                </div>
+                <div>
+                    Monthly Interest :
+                </div>
+                <div >
+                    Total Amount with Interest:
+                </div>
+                <div >
+                    Total interest :
+                </div>
+                 <div style="height: 25px"><hr>
+           
+					</div>
+            </div>
+           
+      </div>
+		
 	<div style="text-align: center;">
         <a href="home.jsp">Back</a>
     </div>

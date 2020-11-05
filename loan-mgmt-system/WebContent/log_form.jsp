@@ -30,7 +30,7 @@
     <div class="Container" style="display:flex;justify-content: center;align-items: center;">
       <div class="row" style="display: flex;background-color: white;height: 80vh; width:80vw;margin-top: 12vh;border-bottom-right-radius:9vh; border-top-left-radius: 9vh;box-shadow:12px 12px 22px gray;background-image: linear-gradient(black,white);">
         <div class="col-4 " style="padding: 0px;">
-          <img src="butterfly.webp" alt="" style="height: 80vh;width:100%;border-top-left-radius: 9vh;">
+          <img src="login.jpg" alt="" style="height: 80vh;width:100%;border-top-left-radius: 9vh;">
         </div>
         
         <div class="col-8">
@@ -39,7 +39,7 @@
             <div class="col align-items-center" style="height: 10vh;">
               
             <div class="mt-5" style="font-family:'Times New Roman', Times, serif;color: white;">
-            	<h1 style="text-align: center;">Sign In </h1>
+            	<h1 style="">Sign In </h1>
             </div>
            </div>
             	
@@ -48,11 +48,11 @@
             </div>
            
             <div class="col" style="height: 10vh;">
-              <input class="form-control" type="text" name="custEmail" placeholder="Email Id... ">
+              <input class="form-control" type="email"  required name="custEmail" placeholder="Email Id... ">
             </div>
 			
 			 <div class="col" style="height: 10vh;">
-              <input class="form-control" type="password" name="custPass" placeholder="Password... ">
+              <input class="form-control" type="password" minlength="2" maxlength="8" name="custPass" required placeholder="Password... ">
             </div>
            <div>
 	            <div class="col d-flex" style="align-items: center; justify-content: center;margin-top: 2vh;">
@@ -65,10 +65,15 @@
         	  
         
         </form><br>
-        
-         <div style="text-align: center;">
+        		<div style="text-align: center;">
+	        		<a href="forgot_password.html">Forget Password</a>
+	           	</div>
+        		<div style="text-align: center;">
 	        		<a href="index.jsp">Back</a>
 	           	</div>
+          </div>
+        
+         
         
           </div>
      
@@ -76,8 +81,7 @@
           
         </div>
       </div>
-      
-    </div>   
+    
   
 </body>
 </html>

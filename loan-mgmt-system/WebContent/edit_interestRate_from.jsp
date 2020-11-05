@@ -7,7 +7,7 @@
 <html>
 <head>
 
-<title>Loan Type list</title>
+<title>update rate</title>
 <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -29,7 +29,7 @@
     ></script>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
+<%@ include file="navbar_admin.jsp" %>
 <br><br><br>
 <h2 style="text-align: center; font-size: 9vh; font-family: serif;">Loan Type</h2><br>
 

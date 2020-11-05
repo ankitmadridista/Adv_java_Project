@@ -27,7 +27,7 @@
     ></script>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
+<%@ include file="navbar_admin.jsp" %>
 
 
 <div class="container-fluid">    
@@ -38,23 +38,21 @@
 		<div class="row content">
 			
 		</div>
-		
+		<div class="row justify-content-between align-items-center" style="height: 50px;  font-size: 20px; ">
+			<a href="admin_home.jsp" style="color: grey"  >
+			
+				<button class="btn-dark btn-block btn-rouded">	Back
+				</button>	
+			</a>
+		</div>
 		
 		<!-- loan Status -->
 		<div class="row content">
 			<div class=" col-sm-12 main jumbotron">
 		
-			
-			<a href="admin_home.jsp" style="color: black  "  >
-				<button type="button" class="btn btn-dark  btn-sm" >
-				
-				Back
-				</button></a>
-</a> 
 				<h3 class="text-center">
-					<b>Loan Status</b>
-					
-					</h3>
+					<b>Loan Status</b>				
+				</h3>
 							
 				<div class="table-responsive" id="myTable"></div>
 				<table class="table  table-striped ">
@@ -62,7 +60,7 @@
 						<tr>
 							<th class="align-middle">Loan Type</th>							
 							<th class="align-middle">Interest Rate</th>
-							<th class="align-middle">Edit</th>
+							<th class="align-middle">Update</th>
 							<th class="align-middle">Delete</th> 
 						</tr>
 					</thead>
@@ -77,7 +75,7 @@
 							<td class="align-middle"><%= l.getRateOfInt() %></td>
 							<td class="align-middle">
 								<a href="edit-admin-interestRate.htm?loanType=<%=l.getLoanType() %>"> 
-									<button type="button" class="btn btn-primary  btn-sm" >Edit</button>						
+									<button type="button" class="btn btn-primary  btn-sm" >Update</button>						
 								</a>
 							</td>
 								<td class="align-middle">

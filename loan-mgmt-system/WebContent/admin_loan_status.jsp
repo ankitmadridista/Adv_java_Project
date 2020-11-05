@@ -27,34 +27,38 @@
     ></script>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
+
+<%@ include file="navbar_admin.jsp" %>
 
 <h1 style="text-align: center;" >Loan Details</h1>
 <div class="container-fluid">    
       
-     <!-- pending apprpval table -->
+     <!-- pending approval table -->
       <div class="row" >
         <div id="top" class="container-fluid ">
 		<div class="row content">
 			
 		</div>
 		
+		<div class="row justify-content-between align-items-center" style="height: 50px;  font-size: 20px; ">
+			<a href="admin_home.jsp" style="color: grey"  >
+			
+				<button class="btn-dark btn-block btn-rouded">	Back
+				</button>	
+			</a>
+		</div>
 		
 		<!-- loan Status -->
 		<div class="row content">
+		<%
+			List<LoanApply> li1 =(List<LoanApply>)request.getAttribute("list1");
+			if(li1.size() > 0){
+		%>
 			<div class=" col-sm-12 main jumbotron">
 		
-			
-			<a href="admin_home.jsp" style="color: black  "  >
-				<button type="button" class="btn btn-dark  btn-sm" >
-				
-				Back
-				</button></a>
-</a> 
 				<h3 class="text-center">
-					<b>Loan Status</b>
-					
-					</h3>
+					<b>Loan Status</b>		
+				</h3>
 							
 				<div class="table-responsive" id="myTable"></div>
 				<table class="table  table-striped ">
@@ -72,8 +76,7 @@
 						</tr>
 					</thead>
 					<tbody id="myTableBody">
-						<% List<LoanApply> li1 =(List<LoanApply>)request.getAttribute("list1");
-		
+						<% 
 						for( LoanApply l : li1) { %>
 						<tr style="">
 							<td class="align-middle"><%= l.getId() %></td>
@@ -87,13 +90,13 @@
 							<td class="align-middle">
 							<a href="view-loan-status.htm?id=<%=l.getId() %>">
 								
-				<button type="button" class="btn btn-danger  btn-sm" >View!</button></a>
+				<button type="button" class="btn btn-primary  btn-sm" >View</button></a>
 
 																	
 							</td>
 							
 						</tr>
-						<% } %>
+						<% } } %>
 					
 					</tbody>
 				</table>
@@ -114,6 +117,10 @@
 		</div>
 		
 		<div class="row content">
+		<%
+			List<LoanApply> li2 =(List<LoanApply>)request.getAttribute("list2");
+			if( li2.size() > 0){
+		%>
 			<div class=" col-sm-12 main jumbotron">
 				<h3 class="text-center">
 					<b>Repaid Details </b>
@@ -134,8 +141,7 @@
 						</tr>
 					</thead>
 					<tbody id="myTableBody">
-						<% List<LoanApply> li2 =(List<LoanApply>)request.getAttribute("list2");
-		
+						<% 
 						for( LoanApply l : li2) { %>
 						<tr style="">
 							<td class="align-middle"><%= l.getId() %></td>
@@ -149,24 +155,16 @@
 					
 							
 						</tr>
-						<% } %>
+						<% } } %>
 					
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
        
-      </div>
-      
-      
-     </div> 
-
-
-
-
-
+   </div>
+  </div> 
 
 
 

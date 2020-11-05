@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<%@ include file="navbar.jsp" %>
+<%@ include file="navbar_admin.jsp" %>
 <br><br>
 
 <h1 style="text-align: center;" >Add Loan Type</h1>

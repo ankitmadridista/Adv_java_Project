@@ -1,6 +1,15 @@
 <%@page import="com.cdac.dto.Customer"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+
+Object s = (Object) session.getAttribute("admin");
+
+if(s == null ) {
+	System.out.println("session fail");
+	response.sendRedirect("./");	
+}
+%>
  
 <!DOCTYPE html>
 <html>
@@ -31,15 +40,44 @@
 <div class="display-4" style="text-align: center; font-family: serif;">
 Welcome Admin ...!!!
 </div>
-
-<br><br>
-
-<div style="text-align: center; font-size: 25px">
-<a href="admin-view-apply.htm">View applications</a><br><br>
-<a href="admin-view-loan-status.htm">View Loan Status</a><br><br>
-<a href="loan-type-form.htm">Set Loan Type</a><br><br>
-<a href="show-loan-type.htm">Show Loan Type</a>
-</div>
+	<div class="row" style="height: 60px;">
+	</div>
+	<div class="row" style="height: 120px; " >
+		<div class="col-1 ">
+			
+		</div>
+		<div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" 
+		style="background: whitesmoke; ">
+			<a style="color: black; text-decoration: none;" href="admin-view-apply.htm">View applications</a>
+		</div>
+		<div class="col-2 ">
+			
+		</div>
+		<div class="col-4 shadoow display-4 d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+			<a style="color: black; text-decoration: none;"  href="admin-view-loan-status.htm">View Loan Status</a>
+		</div>
+		<div class="col-1 ">
+			
+		</div>
+	</div>
+	<div class="row" style="height: 70px;" ></div>
+	<div class="row" style="height: 120px;">
+		<div class="col-1 ">
+			
+		</div>
+		<div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+			<a style="color: black; text-decoration: none;"  href="loan-type-form.htm">Set Loan Type</a>
+		</div>
+		<div class="col-2 ">
+			
+		</div>
+		<div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+			<a style="color: black; text-decoration: none;"  href="show-loan-type.htm">Show Loan Type</a>
+		</div>
+		<div class="col-1 ">
+			
+		</div>
+	</div>
 
  <%@ include file="footer.jsp" %>
 </body>

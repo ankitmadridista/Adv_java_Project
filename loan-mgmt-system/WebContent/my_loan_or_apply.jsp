@@ -30,10 +30,6 @@
 <body>
 <%@ include file="navbar.jsp" %>
 
-
-
-
-
 <div class="container-fluid">    
       
      <!-- My Pending -->
@@ -44,21 +40,18 @@
 		</div>
 		
 		<div class="row justify-content-between align-items-center" style="height: 50px;  font-size: 20px; ">
-				
-				
-				
-				<a href="home.jsp" style="color: grey"  >
-				
-					<button class="btn-secondary btn-lg">	Back
+			<a href="home.jsp" style="color: grey"  >
+			
+				<button class="btn-dark btn-block btn-rouded">	Back
 				</button>	
-				</a>
-				
-				<a href="loan-apply-form.htm" style="color: grey" >
-				<button class="btn-secondary btn-lg">	
-				Apply for a loan
-				</button>	</a>
-				
-				</div>
+			</a>
+			
+			<a href="loan-apply-form.htm" style="color: grey" >
+				<button class="btn-dark btn-block btn-rouded">	
+					Apply for a loan
+				</button>	
+			</a>
+		</div>
 		
 		
 		<div class="row content">
@@ -226,6 +219,66 @@
 							<td class="align-middle"><%= l.getRateOfInt() %></td>
 							<td class="align-middle"><%= l.getApplyDate() %></td>
 							<td class="align-middle"><%= l.getStatus() %></td>
+							
+						</tr>
+						<%} } %>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+       
+      </div>
+      
+      <!-- Repaid -->      
+       <div class="row" >
+        <div id="top" class="container-fluid ">
+		<div class="row content">
+			
+		</div>
+		
+		<div class="row content">
+			
+		
+	
+				<% List<LoanApply> li4 =(List<LoanApply>)request.getAttribute("list4");
+					if(li4.size() > 0 ) {
+				%>
+				<div class=" col-sm-12 main jumbotron">
+					<h3 class="text-center">
+						<b>Repaid</b>
+					
+					</h3>
+				<div class="table-responsive" id="myTable"></div>
+				<table class="table  table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th class="align-middle">Id</th>
+							<th class="align-middle">Name</th>
+							<th class="align-middle">Loan Type</th>
+							<th class="align-middle">Amount</th> 
+							<th class="align-middle">Tenure</th>
+							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Apply Date</th>
+							<th class="align-middle">Status</th> 
+						
+						</tr>
+					</thead>
+					<tbody id="myTableBody">
+						<%
+						for( LoanApply l : li4) { %>
+						<tr style="">
+							<td class="align-middle"><%= l.getId() %></td>
+							<td class="align-middle"><%= l.getCustName() %></td>
+							<td class="align-middle"><%= l.getLoanType() %></td>
+							<td class="align-middle"><%= l.getAmount() %></td>
+							<td class="align-middle"><%= l.getTenure() %></td>
+							<td class="align-middle"><%= l.getRateOfInt() %></td>
+							<td class="align-middle"><%= l.getApplyDate() %></td>
+							<td class="align-middle"><%= l.getStatus() %></td>
+							
 							
 						</tr>
 						<%} } %>

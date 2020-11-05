@@ -39,7 +39,7 @@
 
   
   <div class="form-group">
-   <label for="exampleInputPassword1"><b>Loan Type</b></label><br>
+   <label for="exampleInputPassword1"><b>Loan Type:</b></label><br>
   		<spr:select path="loanType" class="form-control">
   				<%
 					List<LoanTypeMaster> list = (List<LoanTypeMaster>)request.getAttribute("li");
@@ -55,10 +55,10 @@
     <label for="exampleInputPassword1"><b>Amount:</b></label>
     <spr:input class="form-control" placeholder="Interest Rate" path="amount"/>
     
-    <label for="exampleInputPassword1"><b>Tenure</b></label>
+    <label for="exampleInputPassword1"><b>Tenure (in years):</b></label>
     <spr:input class="form-control" placeholder="Interest Rate" path="tenure"/>
     
-    <label for="exampleInputPassword1"><b>Monthly Salary</b></label>
+    <label for="exampleInputPassword1"><b>Monthly Salary:</b></label>
     <spr:input class="form-control" placeholder="Interest Rate" path="monthlySalary"/>
     
     
