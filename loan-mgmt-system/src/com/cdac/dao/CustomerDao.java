@@ -7,4 +7,5 @@ public interface CustomerDao {
 	public void addCustomer(Customer customer);
 	//validation login
 	public boolean checkCustomer(Customer customer);
+	String forgotPassword(String userName);
 }

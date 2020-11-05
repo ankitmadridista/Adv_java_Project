@@ -1,8 +1,10 @@
 package com.cdac.cntr;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +30,13 @@ public class LoanApplyController {
 	
 	//my-loan-pending-list(front page)
 	@RequestMapping(value = "/my-loan-or-apply.htm")
-	public String myloanorapply(LoanApply loanApply, ModelMap map1, ModelMap map2, ModelMap map3, HttpSession s) {
-		String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
+	public String myloanorapply(LoanApply loanApply, ModelMap map1, ModelMap map2, ModelMap map3, ModelMap map4, HttpSession s, HttpServletResponse ss) throws IOException {
+	
+		CustomerController.checkSession(s, ss);
+		String custName = (s.getAttribute("customer") != null) ? 
+				( (Customer)s.getAttribute("customer") ).getCustName() :
+					"";
+//		String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
 		List<LoanApply> list1 = loanApplyService.viewPendingList(custName);
 		map1.put("list1", list1);
 		
@@ -39,12 +46,16 @@ public class LoanApplyController {
 		List<LoanApply> list3 = loanApplyService.viewRejectList(custName);
 		map3.put("list3", list3);
 		
+		List<LoanApply> list4 = loanApplyService.viewRepaidList(custName);
+		map4.put("list4", list4);
+		
 		return "my_loan_or_apply";
 	}
 	
 	//loan-form
 	@RequestMapping(value = "/loan-apply-form.htm")
-	public String addLoanForm(LoanApply loanApply, ModelMap map, ModelMap map1) {
+	public String addLoanForm(LoanApply loanApply, ModelMap map, ModelMap map1, HttpSession s, HttpServletResponse ss) throws IOException {
+		CustomerController.checkSession(s, ss);
 		List<LoanTypeMaster> li = loanTypeMasterService.viewLoanType();
 		
 		map.put("loanApply", new LoanApply());
@@ -100,10 +111,11 @@ public class LoanApplyController {
 	}
 	
 	@RequestMapping(value = "/admin-view-apply.htm")
-	public String viewPending(LoanApply loanApply, ModelMap map1,  ModelMap map2, ModelMap map3, HttpSession s) {
+	public String viewPending(LoanApply loanApply, ModelMap map1,  ModelMap map2, ModelMap map3, HttpSession s, HttpServletResponse ss) throws IOException {
 		//String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
 		//System.out.println("admin - view loan applic");
 		//pending
+		CustomerController.checkSession(s, ss);
 		List<LoanApply> list1 = loanApplyService.viewAllPendingList();
 		map1.put("list1", list1);			
 		System.out.println(list1);
@@ -211,8 +223,10 @@ public class LoanApplyController {
 	
 	//admin view loan status
 	@RequestMapping(value = "/admin-view-loan-status.htm")
-	public String adminViewLoanStatus(LoanApply loanApply, ModelMap map1, ModelMap map2, HttpSession s) {
+	public String adminViewLoanStatus(LoanApply loanApply, ModelMap map1, ModelMap map2, HttpSession s, HttpServletResponse ss) throws IOException {
 		//String custName = ( (Customer)s.getAttribute("customer") ).getCustName() ; 
+		CustomerController.checkSession(s, ss);
+		
 		List<LoanApply> list1 = loanApplyService.viewAllApproveList();
 		map1.put("list1", list1);
 		System.out.println(list1);

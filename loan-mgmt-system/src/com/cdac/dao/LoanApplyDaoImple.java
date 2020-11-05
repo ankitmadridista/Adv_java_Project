@@ -37,7 +37,8 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 			}
 		});		
 	}
-
+	
+	//customer pending list
 	@Override
 	public List<LoanApply> showPendingList(String custName) {
 		return ht.execute(new HibernateCallback<List<LoanApply>>() {
@@ -57,6 +58,7 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 		});
 	}
 	
+	//customer approved list
 	@Override
 	public List<LoanApply> showApproveList(String custName) {
 		return ht.execute(new HibernateCallback<List<LoanApply>>() {
@@ -76,6 +78,7 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 		});
 	}
 
+	//customer reject list
 	@Override
 	public List<LoanApply> showRejectList(String custName) {
 		return ht.execute(new HibernateCallback<List<LoanApply>>() {
@@ -86,6 +89,26 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 				Query q = session.createQuery("from LoanApply where custName = ? and Status = ?");
 					q.setString(0, custName);
 				q.setString(1, "Rejected");
+				List<LoanApply> list = q.list();
+				tr.commit();
+				session.flush();
+				session.close();
+				return list;
+			}
+		});
+	}
+	
+	//customer Re-paid list
+	@Override
+	public List<LoanApply> showRepaidList(String custName) {
+		return ht.execute(new HibernateCallback<List<LoanApply>>() {
+
+			@Override
+			public List<LoanApply> doInHibernate(Session session) throws HibernateException {
+				Transaction tr = session.beginTransaction();
+				Query q = session.createQuery("from LoanApply where custName = ? and Status = ?");
+					q.setString(0, custName);
+				q.setString(1, "Repaid");
 				List<LoanApply> list = q.list();
 				tr.commit();
 				session.flush();
@@ -235,8 +258,6 @@ public class LoanApplyDaoImple implements LoanApplyDao {
 		
 	}
 
-	
-	
-	
+
 
 }

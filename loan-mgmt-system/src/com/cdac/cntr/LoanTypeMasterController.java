@@ -1,7 +1,9 @@
 package com.cdac.cntr;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,8 @@ public class LoanTypeMasterController {
 	
 	//loan-type-form
 	@RequestMapping(value = "/loan-type-form.htm")
-	public String loanTypeForm(LoanTypeMaster loanTypeMaster) {
-		
+	public String loanTypeForm(LoanTypeMaster loanTypeMaster, HttpSession s, HttpServletResponse ss ) throws IOException {
+		CustomerController.checkSession(s, ss);
 		return "set_loan_type_form";
 	}
 	
@@ -40,8 +42,8 @@ public class LoanTypeMasterController {
 	
 	//show-loan-type
 	@RequestMapping(value = "/show-loan-type.htm")
-	public String showLoanType(LoanTypeMaster loanTypeMaster, ModelMap map) {
-
+	public String showLoanType(LoanTypeMaster loanTypeMaster, ModelMap map, HttpSession s, HttpServletResponse ss) throws IOException {
+		CustomerController.checkSession(s, ss);
 		List<LoanTypeMaster> li = loanTypeMasterService.viewLoanType();
 		map.put("list", li);
 		

@@ -33,6 +33,11 @@ public class LoanApplyServiceImple implements LoanApplyService {
 	public List<LoanApply> viewRejectList(String custName) {
 		return loanApplyDao.showRejectList(custName);
 	}
+	
+	@Override
+	public List<LoanApply> viewRepaidList(String custName) {
+		return loanApplyDao.showRepaidList(custName);
+	}
 
 	@Override
 	public List<LoanApply> viewAllPendingList() {
@@ -69,7 +74,6 @@ public class LoanApplyServiceImple implements LoanApplyService {
 		loanApplyDao.updateInstallment(loanApply);
 		
 	}
-
 	
 
 }

@@ -78,4 +78,27 @@ public class CustomerDaoImple implements CustomerDao {
 			}
 		});
 	}
+
+	@Override
+	public String forgotPassword(String userName) {
+		String password = ht.execute(new HibernateCallback<String>() {
+
+			@Override
+			public String doInHibernate(Session session) throws HibernateException {
+				Transaction tr = session.beginTransaction();
+				Query q = session.createQuery("from Customer where custEmail = ?");
+				q.setString(0, userName);
+				List<Customer> li = q.list();
+				String pass = null;
+				if(!li.isEmpty())
+					pass = li.get(0).getCustPass();
+				tr.commit();
+				session.flush();
+				session.close();
+				return pass;
+			}
+			
+		});
+		return password;
+	}
 }

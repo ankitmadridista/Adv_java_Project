@@ -21,5 +21,9 @@ public class CustomerServiceImple implements CustomerService {
 	public boolean chkCustomer(Customer customer) {		
 		return customerDao.checkCustomer(customer);
 	}
+	@Override
+	public String forgotPassword(String userName) {
+		return customerDao.forgotPassword(userName);
+	}
 
 }

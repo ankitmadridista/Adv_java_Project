@@ -9,6 +9,7 @@ public interface LoanApplyDao {
 	public List<LoanApply> showPendingList(String custName);
 	public List<LoanApply> showApproveList(String custName);
 	public List<LoanApply> showRejectList(String custName);
+	public List<LoanApply> showRepaidList(String custName);	
 	public List<LoanApply> showAllPendingList();
 	public List<LoanApply> showAllApproveList();
 	public List<LoanApply> showAllRejectList();

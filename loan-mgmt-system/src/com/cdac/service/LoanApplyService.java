@@ -9,6 +9,7 @@ public interface LoanApplyService {
 	public List<LoanApply> viewPendingList(String custName);
 	public List<LoanApply> viewApproveList(String custName);
 	public List<LoanApply> viewRejectList(String custName);	
+	public List<LoanApply> viewRepaidList(String custName);
 	public List<LoanApply> viewAllPendingList();
 	public List<LoanApply> viewAllApproveList();
 	public List<LoanApply> viewAllRejectList();
