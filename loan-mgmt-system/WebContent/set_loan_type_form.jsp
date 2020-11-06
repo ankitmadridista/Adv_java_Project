@@ -35,11 +35,11 @@
 <form action="add-loan-type.htm" method="post" style="width: 80vh; margin-left: 67vh">
   <div class="form-group">
     <label for="exampleInputEmail1"><b>Loan Type</b> </label>
-    <input type="text" class="form-control"  placeholder="Loan Type" name="loanType">
+    <input type="text" class="form-control"  placeholder="Loan Type" name="loanType" required>
      </div><br>
   <div class="form-group">
     <label for="exampleInputPassword1"><b>Interest Rate</b></label>
-    <input type="text" class="form-control" placeholder="Interest Rate" name="rateOfInt">
+    <input type="text" class="form-control" placeholder="Interest Rate" name="rateOfInt" required>
   </div><br>
   
   <button type="submit" class="btn btn-primary btn-block">Submit</button>

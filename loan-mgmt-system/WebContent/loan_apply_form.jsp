@@ -35,37 +35,37 @@
 
 <h2 style="text-align: center; font-size: 9vh; font-family: serif;">Loan Application Form</h2><br>
 
-<spr:form action="loan-apply.htm" method="post" commandName="loanApply" style="width: 80vh; margin-left: 67vh" >
+<form action="loan-apply.htm" method="post" style="width: 80vh; margin-left: 67vh" >
 
   
   <div class="form-group">
    <label for="exampleInputPassword1"><b>Loan Type:</b></label><br>
-  		<spr:select path="loanType" class="form-control">
+  		<select name="loanType" class="form-control">
   				<%
 					List<LoanTypeMaster> list = (List<LoanTypeMaster>)request.getAttribute("li");
 					for(LoanTypeMaster l : list ){
 					%>					
-					<spr:option value="<%=l.getLoanType() %>"><%= l.getLoanType() %></spr:option>
+					<option value="<%=l.getLoanType() %>"><%= l.getLoanType() %></option>
 					<%
 					}
 					%>
-		</spr:select><br>
+		</select><br>
 		
     
     <label for="exampleInputPassword1"><b>Amount:</b></label>
-    <spr:input class="form-control" placeholder="Interest Rate" path="amount"/>
+    <input class="form-control" placeholder="Amount" name="amount" required />
     
     <label for="exampleInputPassword1"><b>Tenure (in years):</b></label>
-    <spr:input class="form-control" placeholder="Interest Rate" path="tenure"/>
+    <input class="form-control" placeholder="Tenure in years" name="tenure" required/>
     
     <label for="exampleInputPassword1"><b>Monthly Salary:</b></label>
-    <spr:input class="form-control" placeholder="Interest Rate" path="monthlySalary"/>
+    <input class="form-control" placeholder="Monthly Salary" name="monthlySalary" required/>
     
     
   </div><br>
   
   <button type="submit" class="btn btn-primary btn-block">Submit</button>
-</spr:form>
+</form>
 
 <div style="text-align: center;"><br><br><br>
 	<a href="my-loan-or-apply.htm" >Back</a>

@@ -67,8 +67,8 @@ public class CustomerDaoImple implements CustomerDao {
 					customer.setDateOfBirth(li.get(0).getDateOfBirth());
 					customer.setRegDate(li.get(0).getRegDate());
 					
-					System.out.println("custId: " + customer.getCustId());
-					System.out.println("data added");
+//					System.out.println("custId: " + customer.getCustId());
+//					System.out.println("data added");
 				}
 				tr.commit();
 				
@@ -100,5 +100,33 @@ public class CustomerDaoImple implements CustomerDao {
 			
 		});
 		return password;
+	}
+
+	@Override
+	public boolean checkEmail(Customer customer) {
+		return ht.execute(new HibernateCallback<Boolean>() {
+
+			@Override
+			public Boolean doInHibernate(Session session) throws HibernateException {
+				Transaction tr = session.beginTransaction();
+				
+				Query q = session.createQuery("from Customer where custEmail = ? ");
+				q.setString(0, customer.getCustEmail());
+								
+				List<Customer> li = q.list();
+
+				boolean flag = false; // = li.isEmpty();//false already reg
+				if( li.isEmpty() ) {
+					flag = true;
+				}
+				else
+					flag = false;
+				tr.commit();
+				
+				session.flush();
+				session.close();
+				return flag;
+			}
+		});
 	}
 }

@@ -7,5 +7,9 @@ public interface CustomerDao {
 	public void addCustomer(Customer customer);
 	//validation login
 	public boolean checkCustomer(Customer customer);
+	//returns password
 	String forgotPassword(String userName);
+	//validation for email reg
+	public boolean checkEmail(Customer customer);	
+	
 }

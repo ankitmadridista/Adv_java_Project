@@ -36,7 +36,15 @@ public class CustomerController {
 	//submit-reg-form
 	@RequestMapping(value = "/cust-reg.htm")
 	public String addCust(Customer customer, ModelMap map) {
-		customerService.insertCustomer(customer);
+		
+		boolean flag = customerService.chkEmail(customer);
+		
+		if( flag == true) {
+			customerService.insertCustomer(customer);
+		}
+		else {
+			return "error404";
+		}
 		map.put("customer", new Customer());
 		return "index";
 	}
@@ -75,7 +83,7 @@ public class CustomerController {
 		CustomerController.checkSession(s, r);
 			return "admin_home";
 			
-		}
+	}
 		
 	@RequestMapping(value = "/emi-calc-form.htm")
 	public String emiCalcForm( ModelMap map, HttpSession s, HttpServletResponse r) throws IOException {

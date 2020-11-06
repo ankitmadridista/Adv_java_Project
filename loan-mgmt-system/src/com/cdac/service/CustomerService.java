@@ -6,4 +6,5 @@ public interface CustomerService {
 	public void insertCustomer(Customer customer);
 	public boolean chkCustomer(Customer customer);
 	String forgotPassword(String userName);
+	public boolean chkEmail(Customer customer);
 }

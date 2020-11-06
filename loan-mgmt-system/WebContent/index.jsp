@@ -3,7 +3,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Index</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -100,7 +100,7 @@
                 Details of fees and interest rates are shared in easy to understand terms.
             </div>
             <div class="col-3 bg-light " style="box-shadow:12px 12px 22px grey;padding: 0px; height:60vh;">
-                <img src="1.jpg" alt="" style="width: 100%;padding: 0px;">
+                <img src="3.jpg" alt="" style="width: 100%;padding: 0px;">
                 <br><b>Offers & More</b></br> We will help you with your ongoing financial needs. 
                 Pay on time and apply for top-up loans. Get referral, early payment and sharing bonuses.
                 Online lending platform Credy facilitates small-ticket personal and school fee financing loans, claims to approve loans in 24 hours.
