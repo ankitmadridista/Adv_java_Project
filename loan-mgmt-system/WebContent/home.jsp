@@ -48,9 +48,9 @@ if(session.getAttribute("customer") != null){
 Welcome
 <%= c.getCustName() %>
 </div>
-<div class="row" style="height: 60px;">
+	<div class="row" style="height: 20px;">
 	</div>
-	<div class="row" style="height: 200px; " >
+	<div class="row" style="height: 150px; " >
 		<div class="col-1 ">
 			
 		</div>
@@ -68,10 +68,25 @@ Welcome
 			
 		</div>
 	</div>
+	<div style="height: 30px">
+	
+	</div>
+	<div class="row" style="height: 150px; " >
+		<div class="col-4">
+			
+		</div>
+		
+		<div class="col-4 shadoow display-4 d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+			<a style="color: black; text-decoration: none;"  href="cust-show-loan-type.htm">Interest Rates</a>
+		</div>
+		<div class="col-4">
+			
+		</div>
+	</div>
 
-<div style="height: 120px">
-
-</div>
+	<div style="height: 60px">
+	
+	</div>
 <div class="container-fluid ">
 
 <div class="row justify-content-between " style="text-align: center; color: blue; font-size: 25px; background: whitesmoke">

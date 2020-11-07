@@ -95,6 +95,16 @@ public class LoanTypeMasterController {
 //			
 //			return "show_loan_type";
 //		}
+		
+		//customer show-loan-type
+		@RequestMapping(value = "/cust-show-loan-type.htm")
+		public String custShowLoanType(LoanTypeMaster loanTypeMaster, ModelMap map, HttpSession s, HttpServletResponse ss) throws IOException {
+			CustomerController.checkSession(s, ss);
+			List<LoanTypeMaster> li = loanTypeMasterService.viewLoanType();
+			map.put("list", li);
+			
+			return "cust_show_loan_type";
+		}
 	
 	
 	

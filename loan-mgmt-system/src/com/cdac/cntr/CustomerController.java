@@ -25,7 +25,6 @@ public class CustomerController {
 	@Autowired
 	private MailSender mailSender;
 	
-	
 	//open-reg-form
 	@RequestMapping(value = "/cust-reg-form.htm")
 	public String addCustForm( ModelMap map, HttpSession session, HttpServletResponse s) {
@@ -57,16 +56,19 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = "/cust-log.htm", method = RequestMethod.POST)
-	public String chkCust(Customer customer, ModelMap map, HttpSession s) {
+	public String chkCust(Customer customer, ModelMap map, HttpSession s, HttpServletResponse ss) throws IOException {
+		
 		//if-admin
 		if(customer.getCustEmail().equals("admin@gmail.com") && customer.getCustPass().equals("admin") ) {
 			s.setAttribute("admin", customer);
+			CustomerController.checkSession(s, ss);
 			System.out.println(s.getAttribute("admin"));
 			return "admin_home";
 		}
 		//other-customer
 		else if( customerService.chkCustomer(customer) ) {
 			s.setAttribute("customer", customer);
+			CustomerController.checkSession(s, ss);
 			System.out.println(s.getAttribute("customer"));
 			return "home";
 		}else {

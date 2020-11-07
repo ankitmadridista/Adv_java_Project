@@ -51,7 +51,7 @@
 			<div class=" col-sm-12 main jumbotron">
 		
 				<h3 class="text-center">
-					<b>Loan Status</b>				
+					<b>Loan Types</b>				
 				</h3>
 							
 				<div class="table-responsive" id="myTable"></div>
@@ -59,7 +59,7 @@
 					<thead class="table-dark">
 						<tr>
 							<th class="align-middle">Loan Type</th>							
-							<th class="align-middle">Interest Rate</th>
+							<th class="align-middle">Interest Rate (%)</th>
 							<th class="align-middle">Update</th>
 							<th class="align-middle">Delete</th> 
 						</tr>

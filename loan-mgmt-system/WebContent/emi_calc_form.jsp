@@ -2,6 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spr" %>    
 <!DOCTYPE html>
+<%
+
+Object s = (Object) session.getAttribute("admin");
+Object s1 = (Object) session.getAttribute("customer");
+if(s == null && s1 == null ) {
+	System.out.println("session fail");
+	response.sendRedirect("./");	
+}
+%> 
 <html>
 <head>
 <title>EMI Calc Form</title>

@@ -28,25 +28,25 @@
 </style>
 <body>
 <%@include file="navbar1.jsp" %>
- <div class = "container-fluid">
+ <div class = "container-fluid" >
           
             <div class="row align-items-center bg-warning"
             style="height:80vh;
             background-image: url(about1.jpg);background-size: cover;background-position: center;">
             </div>
-
-            <div class="row bg-light"style="height:80vh; margin-top:6vh">
+			<div style="background-image: linear-gradient(white,black)">
+            <div class="row "style="height:80vh; margin-top:6vh">
 
                 <div class="col-1 "></div>
                 <div class="col-1  ">
-                    <div class="col-5" style="background-image: url(assets/gc10.sv);height:53px;"></div>
+                    <div class="col-5" style="background-image: url(a1.svg);height:53px;"></div>
                 </div>
                 <div class="col-5">
                     <h4>  CUSTOMER SUPPORT</h4>
                         For support with your bookings and other queries, click here or visit the Support section.
                 </div>
                 <div class="col-1  ">
-                    <div class="col-4" style="background-image: url(assets/c11.svg);height:53px;"></div>
+                    <div class="col-4" style="background-image: url(a2.svg);height:53px;"></div>
                 </div>
                 <div class="col-4">
                    <h4> MEDIA RELATED QUERIES</h4>
@@ -54,25 +54,26 @@
                 </div>
                 <div class="col-1"></div>
                 <div class="col-1">
-                    <div class="col-5" style="background-image: url(assets/c12.svg);height:52px;"></div>
+                    <div class="col-5" style="background-image: url(a3.svg);height:52px;"></div>
                 </div>
                 <div class="col-5">
                     <h4>CUSTOMER SECURITY</h4>
                     If you have security concerns, please report your issues with us at security@drive.com
                 </div>
                 <div class="col-1">
-                    <div class="col-6" style="background-image: url(assets/c13.svg);height:49px;"></div>
+                    <div class="col-6" style="background-image: url(a4.svg);height:49px;"></div>
                 </div>
                 <div class="col-4">
-                   <h4> DRIVE </h4>
-                    If you are a driver or a fleet manager and want to attach your vehicle with us, click here
+                   <h4>Our Mission </h4>
+                    What drives us
+					To facilitate credit and economic growth through financial trust, innovation, speed and responsibility
                 </div>
             </div>
 
-            <div class="row " style="height:65vh">
+            <div class="row " style="height:70vh">
                 <div class="col-1 "></div>
-          <div class="col-6">    <h1>  Address </h1>
-            <br>
+          <div class="col-6" style="color: white;">    <h1>  Address </h1>
+            
            <h3>REGISTERED OFFICE</h3>
             ANI Technologies Private Limited<br>
             Regent Insignia ,<br>
@@ -83,9 +84,9 @@
             Fax number 080-67350904
           </div>
           <div class="col-5">
-              <div class="col-8 " style="height:60vh; width:100%;background-image: url(about2.jpg);background-position: center;background-size: cover;"></div>
+              <div class="col-8 " style="height:60vh; width:100%;background-image: url(i.svg);background-position: center;background-size: cover;"></div>
           </div>
-
+			</div>
             </div>
            </div> 
 <!--Footer-->

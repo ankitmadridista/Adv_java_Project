@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+Object s = (Object) session.getAttribute("admin");
+Object s1 = (Object) session.getAttribute("customer");
+if(s == null && s1 == null ) {
+	System.out.println("session fail");
+	response.sendRedirect("./");	
+}
+%> 
 <!DOCTYPE html>
 <html>
 <head>

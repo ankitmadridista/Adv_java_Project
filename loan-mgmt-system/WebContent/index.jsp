@@ -84,10 +84,10 @@
             </div>
         </div>
     <div style="background-image: linear-gradient(white,black)">
-        <div class="row d-flex" style="height:70vh;justify-content: center;">
+        <div class="row d-flex" style="height:70vh;justify-content: center; text-align: center;">
             <div class="col-3 bg-light mr-5 no gutters" style="box-shadow:12px 12px 22px grey;padding: 0px; height:60vh;" >
-                <img src="1.jpg" alt="" style="width: 100%;">
-                <br><b> Fast Disbursal</b></br>Instant approval in 1 min. 
+                <img src="1.jpg" alt="" style="width: 100%;padding: 0px;height: 35vh;">
+                <br><b> Fast Disbursal</b>Instant approval in 1 min. 
                 Detailed terms in 3 hours. Money in account in 24 hours. 
                 Enjoy benefits of a fast online process of our online loan services. 
                 We offer a fast customer service with low response times.
@@ -95,13 +95,13 @@
             </div>
             <div class="col-3 bg-light mr-5" style="box-shadow:12px 12px 22px grey;padding: 0px; height:60vh;" >
                 <img src="11.jpeg" alt="" style="width: 100%;padding: 0px;height: 35vh;">
-                <br><b>Transparent Rates</b></br>  We have an efficient and fast online process, which reduces costs compared to banks. 
+                <br><b>Transparent Rates</b>  We have an efficient and fast online process, which reduces costs compared to banks. 
                 Most of our customers pay only about Rs 400 as interest per month on a loan of Rs 50,000. 
                 Details of fees and interest rates are shared in easy to understand terms.
             </div>
             <div class="col-3 bg-light " style="box-shadow:12px 12px 22px grey;padding: 0px; height:60vh;">
-                <img src="3.jpg" alt="" style="width: 100%;padding: 0px;">
-                <br><b>Offers & More</b></br> We will help you with your ongoing financial needs. 
+                <img src="6.jpg" alt="" style="width: 100%;padding: 0px;">
+                <br><b>Offers & More</b> We will help you with your ongoing financial needs. 
                 Pay on time and apply for top-up loans. Get referral, early payment and sharing bonuses.
                 Online lending platform Credy facilitates small-ticket personal and school fee financing loans, claims to approve loans in 24 hours.
             </div>
@@ -116,17 +116,16 @@
              </div>
 
              <div class="row d-flex mt-5" style="justify-content: center;">
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="" alt="">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="a.svg" alt="" style="height: 30vh;width: 15vw;">
                    Kikito & Co. partners with Credy to become India’s first Fin-Commerce platform
-					Kikito & Co. is India's First Fin-Commerce platform empowering craftsmen by providing a scalable solution of an integrated marketplace allowing their products to sell globally and facilitating business loans for sustenance and scale. 
-					Kikito & Co, has announced its partnership with Credy to disburse loans to its on-boarded artisans in India.
-					Kikito & Co. partners with Credy to become India’s first Fin-Commerce platform
-					Kikito & Co. is India's First Fin-Commerce platform empowering craftsmen by providing a scalable solution of an integrated marketplace allowing their products to sell globally and facilitating business loans for sustenance and scale.
-                </div>
+					Kikito & Co. is India's First Fin-Commerce platform empowering craftsmen by providing a scalable solution of 
+					an integrated marketplace allowing their products to sell globally and facilitating business loans for sustenance and scale. 
+					
+			    </div>
 
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="11.jpeg" alt="" style="height: 30vh;width: 15vw;">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="b.svg" alt="" style="height: 30vh;width: 15vw;">
                     Secure and Safer Rides
                     Verified drivers, an emergency alert button, and live ride tracking are some of the features that we have in place to ensure you a safe travel experience.
                 	Keep track of any changes in your credit report and get alerted
@@ -135,27 +134,27 @@
              </div>
 
              <div class="row d-flex mt-5" style="justify-content: center;">
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="6.jpg" alt="" style="height: 30vh;width: 15vw;">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="c.svg" alt="" style="height: 30vh;width: 15vw;">
                    Exclusive: Y Combinator-Backed Lending Startup Credy Raises Fresh Funds
 Bengaluru-based full-stack consumer lending company Credy has raised an undisclosed amount in a Pre-Series A round of funding, Pratish Gandhi, cofounder of Credy told Inc42. </div>
 
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="4.jpg" alt="" style="height: 30vh;width: 15vw;">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="g.svg" alt="" style="height: 30vh;width: 15vw;">
                     Need a personal loan? These ex-Goldman Sachs employees will have it Credy in no time
-Online lending platform Credy facilitates small-ticket personal and school fee financing loans, claims to approve loans in 24 hours. It aims to disburse loans worth Rs 100 crore in the next two years.</div>
+					Online lending platform Credy facilitates small-ticket personal and school fee financing loans, claims to approve loans in 24 hours. It aims to disburse loans worth Rs 100 crore in the next two years.</div>
              </div>
 
              <div class="row d-flex mt-5" style="justify-content: center;">
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="12.jpeg" alt="" style="height: 30vh;width: 15vw;">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="e.svg" alt="" style="height: 30vh;width: 15vw;">
                   Exclusive: Y Combinator Backed Online Lending Platform Credy Rakes In $1.4 Mn Funding
-Online lending platform Credy which facilitates small-ticket, online personal loans and school fee financing loans has raised $1.4 Mn in Seed funding from prominent investors including Y Combinator, Khosla Ventures, Vy Capital and some California based HNIs (High Net Worth Individuals) participated in the funding round.  </div>
+					Online lending platform Credy which facilitates small-ticket, online personal loans and school fee financing loans has raised $1.4 Mn in Seed funding from prominent investors including Y Combinator, Khosla Ventures, Vy Capital and some California based HNIs (High Net Worth Individuals) participated in the funding round.  </div>
 
-                <div class="col-5 ml-4 d-flex bg-light shadow" style="color:black;justify-content: center;padding: 0px;">
-                    <img src="1.jpg" alt="" style="height: 30vh;width: 15vw;">
+                <div class="col-5 ml-4 d-flex bg-light shadow align-items-center" style="color:black;justify-content: center;padding: 0px;">
+                    <img src="f.svg" alt="" style="height: 30vh;width: 15vw;">
                     Credy looks to digitize personal lending in India
-Lending platform Credy is looking to change the way people gain access to personal loans in India. The company, which is currently a part of Y Combinator’s Winter 2017 batch, is digitizing the process and improving access to capital for residents by opening up peer-to-peer loans to a wider group of borrowers and lenders.  </div>
+					Lending platform Credy is looking to change the way people gain access to personal loans in India. The company, which is currently a part of Y Combinator’s Winter 2017 batch, is digitizing the process and improving access to capital for residents by opening up peer-to-peer loans to a wider group of borrowers and lenders.  </div>
              </div>
         
         <div class="row">
@@ -166,14 +165,14 @@ Lending platform Credy is looking to change the way people gain access to person
         </div>
 
         <div class="row">
-            <div class="col" style="color: white;height: 15vh;">
+            <div class="col" style="color: white;height: 9vh;">
             
             </div>
         </div>
 
         <div class="row">
             <div class="col-6" style="">
-                <img src="13.jpeg" alt="" style="border-radius: 50vh; height: 70vh">
+                <img src="d.svg" alt="" style="border-radius: 50vh; height: 70vh">
             </div>
             <div class="col-6" style="color: white;margin-top: 10vh;">
             <h1>Latest Articles</h1><br><h3>Learn more about industry best practices, keep up with recent product updates and catch the latest news from IndiaLends.</h3></br>  When it comes to data and security, we implement the best techniques to ensure that your data is super-safe. Now confirmed officially with the ISO 27001 certification.</br>
@@ -182,18 +181,18 @@ Lending platform Credy is looking to change the way people gain access to person
         <div style="height: 50px">
         </div>
 
-        <div class="row d-flex" style="justify-content: center;">
-            <div class="col-3 bg-white mr-5" style="height: 15vh;">
-                Personal LoanPersonal Loan
-Collateral-free Personal Loans with EMIs starting from Rs.1400
+        <div class="row d-flex justify-content-center" style="justify-content: center; text-align: center;">
+            <div class="col-3 bg-white mr-5 " style="height: 15vh;"><br>
+                <b>Personal LoanPersonal Loan</b><br>
+				Collateral-free Personal Loans with EMIs starting from Rs.1400
             </div>
-            <div class="col-3 bg-white mr-5" style="height: 15vh;">
-              Credit CardsCredit Cards
-Personalised card offers curated from a list of 40+ credit cards
+            <div class="col-3 bg-white mr-5" style="height: 15vh;"><br>
+             	<b>Credit CardsCredit Cards</b><br>
+				Personalized card offers carted from a list of 40+ credit cards
             </div>
-            <div class="col-3 bg-white" style="height: 15vh;">
-                Gold LoanGold Loan
-Instant loan against your Gold Jewellery in just 45 minutes
+            <div class="col-3 bg-white" style="height: 15vh;"><br>
+                <b>Gold LoanGold Loan</b><br>
+				Instant loan against your Gold Jewelry in just 45 minutes
             </div>
 
         </div>
